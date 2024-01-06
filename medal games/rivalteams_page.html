@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 20px; 
+            margin-bottom: 20px; 
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            align-items: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Competing Teams</h1>
+    
+    <form id="teamSelectionForm">
+        <label for="team1">Select Division:</label>
+        <select id="team1" name="team1">
+            <option value="" disabled selected>Select</option>
+            <option value="North Zone">North Zone</option>
+            <option value="South Zone">South Zone</option>
+            <option value="East Zone">East Zone</option>
+            <option value="West Zone">Central Zone</option>
+        </select>
+
+        <label for="team2">Select Division:</label>
+        <select id="team2" name="team2">
+            <option value="" disabled selected>Select</option>
+            <option value="North Zone">North Zone</option>
+            <option value="South Zone">South Zone</option>
+            <option value="East Zone">East Zone</option>
+            <option value="West Zone">Central Zone</option>
+        </select>
+
+        <button type="button" onclick="chooseWinner()">Choose Winner</button>
+
+        <div id="winnerSelection" style="display: none;">
+            <br>
+            <label for="winner">Select the Winner:</label>
+            <select id="winner" name="winner" disabled>
+            </select>
+            <br>
+            <button type="button" onclick="proceedUpload()">Proceed</button>
+        </div>
+    </form>
+
+    <script>
+        function updateSelectOptions() {
+            var team1 = document.getElementById("team1").value;
+            var team2 = document.getElementById("team2").value;
+            
+            var team1Select = document.getElementById("team1");
+            var team2Select = document.getElementById("team2");
+
+            if (team1 !== "") {
+                team1Select.remove(0);
+            }
+
+            if (team2 !== "") {
+                team2Select.remove(0);
+            }
+
+            if (team1 === "" && team1Select.options.length === 1) {
+                var selectOption1 = document.createElement("option");
+                selectOption1.value = "";
+                selectOption1.text = "Select";
+                team1Select.add(selectOption1, 0);
+            }
+
+            if (team2 === "" && team2Select.options.length === 1) {
+                var selectOption2 = document.createElement("option");
+                selectOption2.value = "";
+                selectOption2.text = "Select";
+                team2Select.add(selectOption2, 0);
+            }
+        }
+
+        function chooseWinner() {
+
+            var team1 = document.getElementById("team1").value;
+            var team2 = document.getElementById("team2").value;
+
+            console.log("Selected Divisions: " + team1 + " vs " + team2);
+
+            if (team1 === team2 || team1 === "" || team2 === "") {
+                alert("Please select different Divisions and ensure both teams are selected");
+                return;
+            }
+
+            document.getElementById("winnerSelection").style.display = "block";
+
+            var winnerSelect = document.getElementById("winner");
+            winnerSelect.innerHTML = "";
+
+            var teams = [team1, team2];
+            for (var i = 0; i < teams.length; i++) {
+                var option = document.createElement("option");
+                option.value = teams[i];
+                option.text = teams[i];
+                winnerSelect.add(option);
+            }
+
+            winnerSelect.disabled = false;
+        }
+
+        function proceedUpload() {
+            var team1 = document.getElementById("team1").value;
+            var team2 = document.getElementById("team2").value;
+
+            if (team1 && team2) {
+                console.log("Proceeding with upload...");
+                window.location.href = 'upload_page.html'; 
+            } else {
+                alert("Please select divisions for both dropdowns.");
+            }
+        }
+    </script>
+
+</body>
+</html>

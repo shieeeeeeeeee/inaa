@@ -1,0 +1,619 @@
+*{
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+ }
+ body{
+     background-color:#F0FFF0;
+ }
+ html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+ }
+ 
+ section{
+    padding:3rem 2rem;
+ }
+ img{
+     display:block;
+     margin-left:auto;
+     margin-right:auto;
+     height:190px;
+     width:190px;
+     border-radius:50%;
+ }
+ .images8{
+     display:block;
+     margin-left:auto;
+     margin-right:auto;
+     margin-top:20px;
+     border-radius:50%;
+ }
+ .heading h3{
+    font-size: 3rem;
+    color:rgb(36, 28, 188);
+    text-align:center;
+    text-transform: uppercase;
+    font-family:'Tahoma', sans-serif;
+ }
+ 
+ .heading p{
+    font-size: 2.5rem;
+    color:black;
+ }
+ 
+ .heading p a{
+    color:black;
+ }
+ 
+ .heading p a:hover{
+    text-decoration: underline;
+ }
+ .header{
+    position: sticky;
+    top:0; left:0; right:0;
+    z-index: 1000;
+    background-color:#CCE2CB;
+    box-shadow:box-shadow;
+ }
+ 
+ .header .flex{
+    display: flex;
+    align-items: center;
+    padding:1rem;
+    justify-content: space-between;
+    position: relative;
+    max-width: 1200px;
+    margin:0 auto;
+ }
+ .header .flex .logo{
+    font-size: 2rem;
+    color:rgb(36, 28, 188);
+    margin-right: 20rem; 
+    font-family:'Tahoma', sans-serif;
+ }
+ .header .flex .navbar a{
+    margin:0 1rem;
+    font-size: 2rem;
+    color:black;
+    font-family:'Arial', sans-serif;
+ }
+ 
+ .header .flex .navbar a:hover{
+    color:#e08d3c;
+ }
+ .header .flex .icons a{
+     margin-left:20rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color:rgb(36, 28, 188);
+ }
+ .header .flex .icons div{
+    font-size: 2rem;
+    cursor: pointer;
+    color:rgb(36, 28, 188);
+ }
+ .header .flex .icons div:hover{
+    color:#e08d3c;
+ }
+ 
+ .header .flex .account-box{
+    position: absolute;
+    top:120%; right:2rem;
+    width: 30rem;
+    box-shadow:box-shadow;
+    border-radius: .5rem;
+    padding:2rem;
+    text-align: center;
+    border-radius: .5rem;
+    border:border;
+    background-color:white;
+    display: none;
+    animation:fadeIn .2s linear;
+    border:1px solid black;
+    font-family:'Arial', sans-serif;
+ }
+ 
+ .header .flex .account-box.active{
+    display: inline-block;
+ }
+ 
+ .header .flex .account-box p{
+    font-size: 2rem;
+    color:black;
+    margin-bottom: 1.5rem;
+ }
+ 
+ .header .flex .account-box p span{
+    color:rgb(36, 28, 188);
+ }
+ 
+ .header .flex .account-box .delete-btn{
+    margin-top: 0;
+ }
+ 
+ .header .flex .account-box div{
+    margin-top: 1.5rem;
+    font-size: 2rem;
+    color:rgb(36, 28, 188);
+ }
+ 
+ .header .flex .account-box div a{
+    color:black;
+ }
+ 
+ .header .flex .account-box div a:hover{
+    text-decoration: underline;
+ }
+ 
+ .message{
+    position: sticky;
+    top:0;
+    margin:0 auto;
+    max-width: 1200px;
+    background-color: white;
+    padding:2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10000;
+    gap:1.5rem;
+    font-family:'Arial', sans-serif;
+ 
+ }
+ .message span{
+    font-size: 2rem;
+    color:black;
+    font-family:'Arial', sans-serif;
+ }
+ .message i{
+    cursor: pointer;
+    color:red;
+    font-size: 2.5rem;
+ }
+ .message i:hover{
+    transform: rotate(90deg);
+ }
+ .contact form{
+    margin:0 auto;
+    background-color: #CCE2CB;
+    border-radius: .5rem;
+    border:border;
+    padding:2rem;
+    max-width: 50rem;
+    margin:0 auto;
+    text-align: center;
+    font-family:'Arial', sans-serif;
+    border:1px solid black;
+ }
+ .contact form h3{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color:black;
+    font-family:'Arial', sans-serif;
+ }
+ .contact form .box{
+    margin:1rem 0;
+    width: 100%;
+    border:border;
+    background-color: white;
+    padding:1.2rem 1.4rem;
+    font-size: 1.8rem;
+    color:varblack;
+    border-radius: .5rem;
+    border:1px solid black;
+ }
+ .contact form textarea{
+    height: 20rem;
+    resize: none;
+    border:1px solid black;
+ }
+ .form-container{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:2rem;
+    font-family:'Arial', sans-seri
+    border:1px solid black;
+ }
+ .form-container form{
+    padding:2rem;
+    width: 50rem;
+    border-radius:.5rem;
+    box-shadow: box-shadow;
+    border:border;
+    background-color:#051659;
+    text-align: center;
+ }
+ .form-container form h3{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    color:white;
+    font-family:'Arial', sans-seri
+ }
+ .form-container form .box{
+    width: 100%;
+    border-radius: .5rem;
+    background-color:white;
+    padding:1.2rem 1.4rem;
+    font-size: 1.8rem;
+    color:black;
+    border:border;
+    margin:1rem 0;
+    border:1px solid black;
+ }
+ .form-container form p{
+    padding-top: 1.5rem;
+    font-size: 2rem;
+    color:black;
+    font-family:'Arial', sans-seri
+ }
+ .form-container form p a{
+    color: red;
+ }
+ .form-container form p a:hover{
+    text-decoration: underline;
+ }
+ .btn,
+ .option-btn,
+ .delete-btn,
+ .white-btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding:1rem 3rem;
+    cursor: pointer;
+    color:white;
+    font-size: 1.8rem;
+    border-radius: .5rem;
+    text-transform: capitalize;
+ }
+ .btn1{
+  ` display: inline-block;
+    margin-top: 1rem;
+    padding:1rem 3rem;
+    cursor: pointer;
+    background-color:#e08d3c;
+    font-size: 1.8rem;
+    border-radius: .5rem;
+    text-transform: capitalize;
+    font-family:'Arial', sans-serif;
+    color:black;
+ }
+ .btn:hover,
+ .btn1:hover,
+ .option-btn:hover,
+ .delete-btn:hover{
+    background-color: #b8d7f4;
+    font-family:'Arial', sans-serif;
+ }
+ .btn{
+    background-color:transparent;
+    border:2px solid blue;
+ }
+ 
+ .option-btn{
+    background-color:#CCE2CB;
+    font-family:'Arial', sans-serif;
+ }
+ 
+ .delete-btn{
+    background-color:red;
+    font-family:'Arial', sans-serif;
+ }
+ .checkout form{
+    max-width: 1000px;
+    padding:2rem;
+    margin:0 auto;
+    border:border;
+    background-color: #CCE2CB;
+    border-radius: .5rem;
+    font-family:'Arial', sans-serif;
+    border:1px solid black;
+ }
+ .checkout form h3{
+    text-align: center;
+    margin-bottom: 2rem;
+    color:black;
+    text-transform: uppercase;
+    font-size: 3rem;
+    
+ }
+ .checkout form .flex{
+    display: flex;
+    flex-wrap: wrap;
+    gap:1.5rem;
+ }
+ .checkout form .flex .inputBox{
+    flex:1 1 30rem;
+ }
+ 
+ .checkout form .flex span{
+    font-size: 2rem;
+    color:black;
+ }
+ .checkout form .flex select,
+ .checkout form .flex input{
+    border:border;
+    width: 100%;
+    border-radius: .5rem;
+    width: 100%;
+    background-color: white;
+    padding:1.2rem 1.4rem;
+    font-size: 1.8rem;
+    margin:1rem 0;
+ }
+ .display-order{
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 0;
+    font-family:'Arial', sans-serif;
+ }
+ .display-order p{
+    color:black;
+    font-size: 2rem;
+    padding:1rem 1.5rem;
+    border:border;
+    display: inline-block;
+    margin:.5rem;
+    border:1px solid blue;
+ }
+ .display-order .grand-total{
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    color:black;
+ }
+ 
+ .display-order .grand-total span{
+    color:red;
+ }
+ .placed-orders .box-container{
+    max-width: 900px;
+    margin:0 auto;
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap:1.5rem;
+    font-family:'Arial', sans-serif;
+    text-align: center;
+ }
+ .placed-orders .box-container .empty{
+    flex:1;
+    border:1px solid green;
+ }
+ .placed-orders .box-container .box{
+    flex:1 1 40rem;
+    border-radius: .5rem;
+    padding:2rem;
+    border:border;
+    background-color: white;
+    padding:2rem 2rem;
+    border:1px solid black;
+ }
+ .placed-orders p{
+    color:black;
+    font-size: 2rem;
+    padding:1rem 1.5rem;
+    border:border;
+    display: inline-block;
+    margin:.5rem;
+    font-family:'Arial', sans-serif;
+    text-align: center;
+ }
+ .placed-orders .box-container .box p{
+    padding:1rem 0;
+    font-size: 2rem;
+    color:black;
+    font-family:'Arial', sans-serif;
+    text-align: center;
+ }
+ .placed-orders .box-container .box p span{
+    color:green;
+    text-align: center;
+ }
+ .products .box-container{
+    max-width: 1000px;
+    margin:0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30rem);
+    align-items: flex-start;
+    gap:1.3rem;
+    justify-content: center;
+ }
+ .products p{
+    color:black;
+    font-size: 2rem;
+    padding:1rem 1.5rem;
+    border:border;
+    display: inline-block;
+    margin:.5rem;
+    font-family:'Arial', sans-serif;
+    text-align: center;
+ }
+ 
+ .products .box-container .box{
+    border-radius: .5rem;
+    background-color: white;
+    box-shadow:box-shadow;
+    padding:2rem;
+    text-align: center;
+    position: relative;
+    border:1px solid black;
+    font-family:'Arial', sans-serif;
+ }
+ 
+ .products .box-container .box .name{
+    padding:1rem 0;
+    font-size: 2rem;
+    color:black;
+ }
+ 
+ .products .box-container .box .qty{
+    width: 100%;
+    padding:1.2rem 1.4rem;
+    border-radius: .5rem;
+    border:border;
+    border:1px solid black;
+    margin:1rem 0;
+    font-size: 2rem;
+ }
+ 
+ .products .box-container .box .price{
+    position: absolute;
+    top:1rem; left:1rem;
+    border-radius: .5rem;
+    padding:1rem;
+    font-size: 2.5rem;
+    color:hite;
+    background-color:#CCE2CB;;
+ }
+ .img{
+    border-radius:50%;
+ }
+ .shopping-cart .box-container{
+    max-width: 1200px;
+    margin:0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30rem);
+    align-items: center;
+    gap:1.5rem;
+    justify-content: center;
+    font-family:'Arial', sans-serif;
+ }
+ 
+ .shopping-cart .box-container .box{
+    text-align: center;
+    padding:2rem;
+    border-radius:.5rem;
+    background-color:white;
+    box-shadow: box-shadow;
+    position: relative;
+    border:border;
+    border:1px solid black;
+ }
+ .shopping-cart .box-container .box .fa-times{
+    position: absolute;
+    top:1rem; right:1rem;
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    font-size: 2rem;
+    background-color:red;
+    color:white;
+    border-radius: .5rem;
+ }
+ .shopping-cart .box-container .box .fa-times:hover{
+    background-color: black;
+ }
+ .shopping-cart .box-container .box .name{
+    padding:1rem 0;
+    font-size: 2rem;
+    color:black;
+ }
+ .shopping-cart .box-container .box .price{
+    padding:1rem 0;
+    font-size: 2.5rem;
+    color:red;
+ }
+ .shopping-cart .box-container .box input[type="number"]{
+    margin:.5rem 0;
+    border:border;
+    border-radius: .5rem;
+    padding:1.2rem 1.4rem;
+    font-size: 1.8rem;
+    color:black;
+    width: 9rem;
+    border:1px solid black;
+ }
+ .shopping-cart .box-container .box .sub-total{
+    padding-top: 1.5rem;
+    font-size: 2rem;
+    color:black;
+ }
+ .shopping-cart .box-container .empty{
+    flex:1;
+    border:1px solid green;
+ }
+ .shopping-cart p{
+    color:black;
+    font-size: 2rem;
+    padding:1rem 1.5rem;
+    border:border;
+    display: inline-block;
+    margin:.5rem;
+    font-family:'Arial', sans-serif;
+    text-align: center;
+ }
+ .shopping-cart .box-container .box .sub-total span{
+    color:red;
+ }
+ .shopping-cart .cart-total{
+    max-width: 1200px;
+    margin:0 auto;
+    border:border;
+    padding:2rem;
+    text-align: center;
+    margin-top: 2rem;
+    border-radius: .5rem;
+ }
+ .shopping-cart .cart-total p{
+    font-size: 2.5rem;
+    color:black;
+ }
+ .shopping-cart .cart-total p span{
+    color:red;
+ }
+ .shopping-cart .cart-total .flex{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap:1rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+ }
+ .shopping-cart .disabled{
+    pointer-events: none;
+    opacity: .5;
+    user-select: none;
+ }
+ .footer{
+    position: sticky;
+    background-color:white;
+    font-family:'Arial', sans-serif;
+ }
+ .footer .box-container{
+    max-width: 1200px;
+    margin:0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap:2rem;
+ }
+ .footer .box-container .box h3{
+    text-transform: uppercase;
+    color:forestgreen;
+    font-size: 1.8rem;
+    padding-bottom: 1rem;
+ }
+ .footer .box-container .box p,
+ .footer .box-container .box a{
+    display: block;
+    font-size: 1.5rem;
+    color:black;
+    padding:0.5rem;
+ }
+ .footer .box-container .box p i,
+ .footer .box-container .box a i{
+    color:black;
+    padding-right: .4rem;
+ }
+ .footer .box-container .box a:hover{
+    color: #e08d3c;
+    text-decoration: underline;
+ }
+ 
+ 
+ 
+ 
+ 

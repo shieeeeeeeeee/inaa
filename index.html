@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<!-- Header -->
+<head>
+  <meta charset="UTF-8">
+  <title>INAA Meet 2023</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">\
+	<meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/gallery.css"> 
+    <script src="https://unpkg.com/scrollreveal@4"></script>
+
+</head>
+<body>
+<button class="menu-toggle"></button>
+<nav>
+  <ul class="menu">
+    <li onclick="location.href='';" data-text="Home">Home</li>
+    <li onclick="location.href='summary/home.html';" data-text="Summary">Summary</li>
+    <li onclick="location.href='';" data-text="Medal Tally">Medal Tally</li>
+  </ul>
+</nav>
+
+<div class="container-fluid">
+        
+<!--Home Starts-->
+       <div class="row">
+          <div class="col-sm-12 first">  
+            
+            
+                <div class="content">
+                  <!-- Home Feature Section with Image -->
+                  <section id="home-section" class="home-section">
+                      <img src="image/pic2.png" alt="Description of your image">
+                      <!-- Replace 'your-image-url.jpg' with the actual URL of your image -->
+                  </section>
+              </div>
+          </div>
+        
+<!--Home Ends-->
+
+<!--About Us-->
+       
+                <div class="col-sm-12 second" style="background-color:rgb(24, 14, 69);">
+                <h2 id="about" align="center">ABOUT US</h2>
+                <div class="col-sm-4 white cork" data-tilt]]>
+                    <img src="image/sdo.png" id="cork"  height="300px" width="100%;" alt="" srcset="">
+                </div>
+                <div class="container aboutcontainer col-sm-8">
+                    <p id="aboutp">Established in 2023, Schools Division of Ilocos Norte has left a mark not only in academics but also in sports in such a short span of time. Be it in athletics our any other form of game, the energy and ethusiasm shown by the students 
+                        of SDO Ilocos Norte has impressed one and all. The passion to compete among ourselves is the fuel which keeps us going. To harness and develop this energy, several sporting events are timely organised in the elementary and secondary. Be it football, basketball, 
+                        badminton, cricket, table tennis or any other form of game, we at SDO Ilocos Norte always strive to give the best and keep up the good name. INAA Meet 2024 is one such event designed in keeping such ideas in mind.</p>
+                </div>
+                </div>
+        </div>
+<!--About Ends-->
+
+<!--Gallery Starts-->
+<div class="row">
+        <div class="col-sm-12 second" style="background-color:#000000;">
+        <h2 id="gallery" align="center">GLIMPSE OF 2023</h2>
+        
+        <div class="gallery">
+                <img src="image/gallery/1.jpg" alt="" srcset="" width="100%" height="150%" class="gallery-img"/>
+                <img src="image/gallery/2.jpg" alt="" srcset="" width="100%" height="auto" class="gallery-img"/>
+                <img src="image/gallery/3.jpg" alt="" srcset="" width="100%" height="auto" class="gallery-img"/>
+                <img src="image/gallery/5.jpg" alt="" srcset="" width="100%" height="auto" class="gallery-img"/>
+                <img src="image/gallery/6.jpg" alt="" srcset="" width="100%" height="auto" class="gallery-img"/>
+                <img src="image/gallery/7.jpg" alt="" srcset="" width="100%" height="auto" class="gallery-img"/>
+                <img src="image/gallery/8.jpg" alt="" srcset="" width="100%" height="auto" class="gallery-img"/>
+                
+        </div>
+
+        </div>
+</div>
+<!--Gallery eNDS-->
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  
+    <script  src="js/index.js"></script>
+    <script  src="js/slider.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('.cork').tilt({
+            glare: true,
+        maxGlare: .5
+        })
+    })
+
+    $(document).ready(function(){
+        $('.logo').tilt({
+            scale: 1.5
+        })
+    })
+    </script>
+    <script>
+            
+            ScrollReveal().reveal('.gallery-img', { interval: 200 });
+     </script>
+
+
+</body>
+
+</html>

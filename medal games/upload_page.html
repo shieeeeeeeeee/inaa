@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Photos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            flex-direction: column; 
+        }
+
+        #dropArea {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            margin-top: 20px; 
+            position: relative;
+        }
+
+        .uploaded-photo {
+            position: relative;
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .uploaded-photo img {
+            max-width: 100%;
+            max-height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .remove-button {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 5px;
+            cursor: pointer;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            display: block;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .loader {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .loader-spinner {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Upload Photos</h2>
+    <label for="fileInput" id="dropArea" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)">
+        <p>Drag & Drop photos here or click to select</p>
+        <div id="preview"></div>
+        <input type="file" accept="image/*" id="fileInput" name="file" style="display: none;" onchange="handleFileSelect(event)">
+        <div id="imagePreview"></div>
+    </label>
+
+    <button type="button" onclick="submitForm()">Submit</button>
+
+    <script>
+        function dragOverHandler(event) {
+            event.preventDefault();
+            document.getElementById('dropArea').style.border = '2px dashed #4caf50';
+        }
+    
+        function dropHandler(event) {
+            event.preventDefault();
+            document.getElementById('dropArea').style.border = '2px dashed #ccc';
+    
+            var files = event.dataTransfer.files;
+            handleFiles(files);
+        }
+    
+        function handleFileSelect(event) {
+            const fileInput = event.target;
+            const files = fileInput.files;
+    
+            if (files.length > 0) {
+                const file = files[0];
+                const imagePreview = document.getElementById('imagePreview');
+
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+
+                    
+                    reader.onload = function (e) {
+                        const imageUrl = e.target.result;
+    
+                        imagePreview.innerHTML = `<div class="uploaded-photo">
+                                                    <img src="${imageUrl}" alt="Uploaded Image" style="max-width: 100%; max-height: 300px;" />
+                                                    <button class="remove-button" onclick="removeUploadedPhoto(this.parentNode)">&#x2716;</button>
+                                                </div>`;
+                    };
+    
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Please select a valid image file.');
+                    fileInput.value = '';
+                    imagePreview.innerHTML = '';
+                }
+            }
+        }
+    
+        function handleFiles(files) {
+            var previewDiv = document.getElementById('preview');
+            var fileInput = document.getElementById('fileInput');
+    
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+    
+                if (file.type.startsWith('image/')) {
+                    var reader = new FileReader();
+    
+                    reader.onload = function (e) {
+                        var img = document.createElement('img');
+                        img.src = e.target.result;
+    
+                        var uploadedPhoto = document.createElement('div');
+                        uploadedPhoto.classList.add('uploaded-photo');
+    
+                        var removeButton = document.createElement('button');
+                        removeButton.classList.add('remove-button');
+                        removeButton.innerHTML = '&#x2716;';
+                        removeButton.onclick = function() {
+                            removeUploadedPhoto(uploadedPhoto);
+                        };
+                        
+                        uploadedPhoto.appendChild(img);
+                        uploadedPhoto.appendChild(removeButton);
+    
+                        previewDiv.appendChild(uploadedPhoto);
+                    };
+    
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Please upload only image files.');
+                }
+            }
+        }
+    
+        function removeUploadedPhoto(uploadedPhoto) {
+            uploadedPhoto.parentNode.removeChild(uploadedPhoto);
+        }
+
+        function submitForm() {
+        var fileInput = document.getElementById('fileInput');
+        var file = fileInput.files[0];
+        
+        if (file) {
+            
+                setTimeout(function() {
+             
+                    window.location.href = 'eventcoordinator_page.html';
+                }, 2000); 
+            } else {
+                alert('Please select a file to upload.');
+            }
+        }
+    </script>
+
+</body>
+</html>

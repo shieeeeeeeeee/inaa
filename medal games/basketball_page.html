@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basketball Sub-Events</title>
+    <link rel="stylesheet" href="event.css"> <!-- Include your style file if needed -->
+    <style>
+        body {
+            background-color: #f4f4f4;
+            text-align: center;
+            color: black;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: #007bff;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+
+        select {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Choose Basketball Sub-Events</h1>
+
+    <form id="basketballEventsForm">
+        <label for="basketballEvents">Select Basketball Event:</label>
+        <br>
+        <select id="basketballEvents" onchange="enableNextButton()">
+            <option value="" disabled selected>Select</option>
+            <option value="3x3">3x3 Basketball</option>
+            <option value="shootout">Three-Point Shootout</option>
+            <option value="skills">Skills Challenge</option>
+            <!-- Add more basketball events as needed -->
+        </select>
+
+        <br><br>
+
+        <button id="nextButton" type="button" onclick="proceedToNextPage()" disabled>
+            <span class="transition"></span>
+            <span class="gradient"></span>
+            <span class="label">Next</span>
+        </button>
+    </form>
+
+    <script>
+        function enableNextButton() {
+            const selectedBasketballEvent = document.getElementById('basketballEvents').value;
+            const nextButton = document.getElementById('nextButton');
+
+            // Enable the next button if a basketball event is selected
+            nextButton.disabled = !selectedBasketballEvent;
+        }
+
+        function proceedToNextPage() {
+            const selectedBasketballEvent = document.getElementById('basketballEvents').value;
+
+            if (selectedBasketballEvent) {
+                // You can modify the URL as needed
+                window.location.href = 'rivalteams_page.html?subEvent=' + selectedBasketballEvent;
+            } else {
+                alert('Please select a basketball sub-event before proceeding.');
+            }
+        }
+    </script>
+</body>
+</html>

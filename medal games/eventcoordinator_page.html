@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Results</title>
+    <link rel="stylesheet" href="event.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            text-align: center;
+            color: black;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        select {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Game Results</h1>
+
+    <form id="eventForm">
+        <label for="levelCategory">Select Level and Category:</label>
+        <br>
+        </br>
+        <select id="levelCategory" onchange="updateSelectOptions()">
+            <option value="" disabled selected>Select</option>
+            <option value="elementary_boys">Elementary Boys</option>
+            <option value="elementary_girls">Elementary Girls</option>
+            <option value="secondary_boys">Secondary Boys</option>
+            <option value="secondary_girls">Secondary Girls</option>
+        </select>
+        
+        <br>
+        </br>
+
+        <label for="events">Select Event:</label>
+        <br>
+        </br>
+        <select id="events" onchange="updateSelectOptions()">
+            <option value="" disabled selected>Select</option>
+            
+        </select>
+
+        <br>
+        </br>
+        
+        <button id="submitButton" type="button">
+            <span class="transition"></span>
+            <span class="gradient"></span>
+            <span class="label">Next</span>
+        </button>
+          
+        
+    </form>
+
+    <script>
+        document.getElementById('levelCategory').addEventListener('change', function() {
+            const levelCategory = document.getElementById('levelCategory').value;
+            const eventsDropdown = document.getElementById('events');
+
+          
+            eventsDropdown.innerHTML = '';
+
+            if (levelCategory === 'elementary_boys') {
+                const sportsForElementaryBoys = ['Arnis', 'Athletics', 'Badminton', 'Baseball', 'Basketball', 'Chess', 'Football', 'Sepak Takraw', 'Swimming', 'Table Tennis', 'Taekwondo', 'Tennis', 'Volleyball', 'Aerogymnastics', 'Dancesports'];
+                sportsForElementaryBoys.forEach(sport => {
+                    const option = document.createElement('option');
+                    option.value = sport.toLowerCase();
+                    option.textContent = sport;
+                    eventsDropdown.appendChild(option);
+                });
+            } else if (levelCategory === 'elementary_girls') {
+                const sportsForElementaryGirls = ['Arnis', 'Athletics', 'Badminton', 'Chess', 'Gymnastics', 'Swimming', 'Table Tennis', 'Taekwondo', 'Tennis', 'Volleyball', 'Aerogymnastics', 'Dancesports'];
+                sportsForElementaryGirls.forEach(sport => {
+                    const option = document.createElement('option');
+                    option.value = sport.toLowerCase();
+                    
+                    option.textContent = sport;
+                    eventsDropdown.appendChild(option);
+                });
+            } else if (levelCategory === 'secondary_boys') {
+                const sportsForSecondaryBoys = ['Archery', 'Arnis', 'Athletics', 'Badminton', 'Baseball', 'Basketball', 'Billiards', 'Boxing', 'Chess', 'Football', 'Sepak Takraw', 'Swimming', 'Table Tennis', 'Taekwondo', 'Tennis', 'Volleyball', 'Wushu', 'Wrestling', 'Basketball 3X3', 'Aerobics Gymnastics', 'Dancesports', 'Pencak Silat'];
+                sportsForSecondaryBoys.forEach(sport => {
+                    const option = document.createElement('option');
+                    option.value = sport.toLowerCase();
+                    option.textContent = sport;
+                    eventsDropdown.appendChild(option);
+                });
+            } else if (levelCategory === 'secondary_girls') {
+                const sportsForSecondaryGirls = ['Archery', 'Arnis', 'Athletics', 'Badminton', 'Basketball', 'Billiards', 'Chess', 'Futsal', 'Sepak Takraw', 'Softball', 'Swimming', 'Table Tennis', 'Taekwondo', 'Tennis', 'Volleyball', 'Wushu', 'Wrestling', 'Basketball 3X3', 'Aerobics Gymnastics', 'Dancesports', 'Pencak Silat'];
+                sportsForSecondaryGirls.forEach(sport => {
+                    const option = document.createElement('option');
+                    option.value = sport.toLowerCase();
+                    option.textContent = sport;
+                    eventsDropdown.appendChild(option);
+                    
+                });
+            }
+        });
+
+        document.getElementById('submitButton').addEventListener('click', function() {
+            const levelCategory = document.getElementById('levelCategory').value;
+            const selectedEvent = document.getElementById('events').value;
+
+            if (levelCategory && selectedEvent) {
+                if (selectedEvent.toLowerCase() === 'swimming') {
+                    window.location.href = 'swimming_page.html';
+                } else if (selectedEvent.toLowerCase() === 'basketball') {
+                    window.location.href = 'basketball_page.html';
+                } else {
+                    window.location.href = 'rivalteams_page.html';
+                }
+            } else {
+                alert('Please select level/category and an event.');
+            }
+        });
+    </script>
+</body>
+</html>

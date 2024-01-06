@@ -1,3 +1,9 @@
+<?php session_start(); 
+    if( ! isset($_SESSION['username']))
+    {
+        header("Location: login.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,18 +90,19 @@
 
 <body>
     <header>
-        <h1>Welcome, Admin</h1>
+        <h1>Welcome <?= $_SESSION['username'] ?></h1>
     </header>
 
     <main>
         <div class="sidebar">
             <a href="#home-section">Home</a>
             <a href="index.html">User</a>
+            <a href="add_user.php">Add Users</a>
             <a href="summary/home.html">Summary</a>
             <a href="#medal-tally-section">Medal Tally</a>
             <a href="medal games/eventcoordinator_page.html">Event Coordinator</a>
             <a href="summary/tech_page.html">Tech Committee Chair</a>
-            <a href="#logout-section" id="logout">Log Out</a>
+            <a href="logout.php" id="logout">Log Out</a>
         </div>
 
         <div class="content">
@@ -112,13 +119,6 @@
     <footer>
         <p>&copy; 2024 Schools Division of Ilocos Norte. All Rights Reserved.</p>
     </footer>
-
-    <script>
-        document.getElementById('logout').addEventListener('click', function() {
-            // Simulate logout by redirecting to a login page
-            window.location.href = 'login.html'; // Replace 'login.html' with your actual login page
-        });
-    </script>
 </body>
 
 </html>

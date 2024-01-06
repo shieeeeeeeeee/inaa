@@ -3,44 +3,45 @@
 include 'config.php';
 session_start();
 
-if(isset($_POST['submit'])){
+if(isset($_POST['submit']))
+{
 
    $username = mysqli_real_escape_string($conn, $_POST['username']);
-   $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
+   $pass = mysqli_real_escape_string($conn, $_POST['password']);
+   $logged_in = false;
+   
+   $select_users = mysqli_query($conn, "SELECT * FROM `user` WHERE username = '$username' LIMIT 1");
 
-   $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE username = '$username', password = '$pass' AND role = '$role'") or die('query failed');
-
-   if(mysqli_num_rows($select_users) > 0){
+   if(mysqli_num_rows($select_users) > 0)
+   {
 
       $row = mysqli_fetch_assoc($select_users);
 
-      if($row['role'] == 'admin'){
+      if(password_verify($pass, $row['password']))
+      {
+         $logged_in = true;
+         $_SESSION['username'] = $row['username'];
+         $_SESSION['role'] = $row['role'];
 
-         $_SESSION['admin_username'] = $row['username'];
-         $_SESSION['admin_password'] = $row['password'];
-         $_SESSION['admin_id'] = $row['id'];
-         header('location:admin.php');
-
-      }elseif($row['role'] == 'eventcoordinator'){
-
-         $_SESSION['eventcoor_username'] = $row['username'];
-         $_SESSION['eventcoor_password'] = $row['password'];
-         $_SESSION['eventcoor_id'] = $row['id'];
-         header('location:eventcoordinator.php');
-
-      }elseif($row['role'] == 'tech committe chair'){
-
-         $_SESSION['tech_username'] = $row['username'];
-         $_SESSION['tech_password'] = $row['password'];
-         $_SESSION['tech_id'] = $row['id'];
-         header('location:tech_page.php');
-
-   }else{
+         if($row['role'] == 1) // ADMIN
+         {
+            header("Location: admin.php");
+         }
+         elseif($row['role'] == 2) // COORDINATOR
+         {
+            header("Location: eventcoordinator.php");
+         }
+         elseif($row['role'] == 3) // TECH COMMITTEE CHAIR
+         {
+            header("Location: tech_page.php");
+         }
+      }
+   }
+   if( ! $logged_in)
+   {
       $message[] = 'incorrect username or password!';
    }
-
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,6 +65,7 @@ if(isset($message)){
       ';
    }
 }
+
 ?>
 
 <div class="form-container">
@@ -72,11 +74,11 @@ if(isset($message)){
        <h3>Login</h3>
        <input type="text" name="username" placeholder="Username" required class="box">
        <input type="password" name="password" placeholder="Password" required class="box">
-       <select id="userType">
+       <!-- <select id="userType">
         <option value="admin">Admin</option>
         <option value="user">Event Coordinator</option>
         <option value="admin">Tech Committee Chair</option>
-      </select>
+      </select> -->
       <br>
       <input type="submit" name="submit" value="login" class="btn">
     </br>
